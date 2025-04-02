@@ -1,3 +1,4 @@
+from curses.ascii import EM
 from pathlib import Path
 
 from langchain.chains import RetrievalQA
@@ -6,6 +7,10 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_core.documents import Document
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import OllamaEmbeddings, OllamaLLM
+
+
+LLM = "llama3.2-vision:11b"
+EMBEDDING_MODEL = "bge-m3"
 
 
 def load_documents(directory_path: Path) -> list[Document]:
@@ -61,11 +66,11 @@ def main():
 
     print(f"Loaded {len(splits)} document chunks")
 
-    embedder = OllamaEmbeddings(model="bge-m3")
+    embedder = OllamaEmbeddings(model=EMBEDDING_MODEL)
     vectorstore = InMemoryVectorStore.from_documents(splits, embedder)
     retriever = vectorstore.as_retriever()
 
-    llm = OllamaLLM(model="llama3.2-vision:11b")
+    llm = OllamaLLM(model=LLM)
 
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm, chain_type="stuff", retriever=retriever, return_source_documents=True

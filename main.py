@@ -7,6 +7,9 @@ from langchain_core.documents import Document
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import OllamaEmbeddings, OllamaLLM
 
+# make sure already pull the model
+# docker pull ollama/llama3.2-vision:11b
+# docker pull ollama/bge-m3
 LLM = "llama3.2-vision:11b"
 EMBEDDING_MODEL = "bge-m3"
 

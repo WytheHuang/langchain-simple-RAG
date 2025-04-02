@@ -8,7 +8,6 @@ from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import OllamaEmbeddings, OllamaLLM
 
 LLM = "llama3.2-vision:11b"
-
 EMBEDDING_MODEL = "bge-m3"
 
 

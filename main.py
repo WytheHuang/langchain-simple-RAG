@@ -1,4 +1,3 @@
-from curses.ascii import EM
 from pathlib import Path
 
 from langchain.chains import RetrievalQA
@@ -7,7 +6,6 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_core.documents import Document
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import OllamaEmbeddings, OllamaLLM
-
 
 LLM = "llama3.2-vision:11b"
 EMBEDDING_MODEL = "bge-m3"

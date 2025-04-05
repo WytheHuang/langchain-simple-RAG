@@ -1,8 +1,10 @@
 {
    "cSpell.words": [
+      "embedder",
       "langchain",
       "ollama",
       "pypdf",
+      "vectorstore",
       "vectorstores"
    ]
 }
